@@ -1,0 +1,477 @@
+// Financier CSS Starts
+
+#financiaer-Details{
+    padding: 20px;
+    .v-financier-inner{
+      padding: 15px;
+      margin-left: 15px;
+      border: 1px solid #cfd2e2;
+      border-radius: 8px;
+      background: #fff;
+    }
+  
+  
+    .required {
+      color: red;
+    }
+  
+    .v-financier-heading {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #cfd2e2;
+  
+      h3{
+        margin-bottom: 20px;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 700;
+        width: 60%;
+      }
+    }
+  
+    .financier-detail {
+      margin-bottom: 25px;
+      border-bottom: 1px solid #ddd;
+  
+      &.new{
+        border-bottom: none;
+        position: relative;
+      }
+  
+      .add-contact-person{
+        span {
+          margin-top: -36px;
+          position: absolute;
+          margin-left: 82%;
+          i{
+            font-size: 25px;
+            color: #0948acf0;
+            font-weight: bold;
+            cursor: pointer;
+          }
+        }
+      }
+      h3{
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #3c3c3c;
+      }
+  
+      .financier-inner{
+        display: flex;
+        flex-direction: column-reverse;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 25px;
+      }
+  
+  
+      .v-finacier-row{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15px;
+        border-radius: 10px;
+        .f-field {
+          margin: 0px 15px 30px 0;
+          width: 24%;
+          position: relative;
+          &:disabled {
+            color: #000;
+            background-color: #F0F0F0;
+          }
+          .mat-select{
+            &:disabled {
+              color: #000;
+              background-color: #F0F0F0;
+            }
+          }
+          &.width50{
+            width: 49%;
+          }
+          .form-control[readonly], .form-control:disabled  {
+            color: #000;
+            background: #F0F0F0;
+          }
+  
+          .checkbox-section{
+            h4{
+              font-size: 14px;
+              line-height: 20px;
+            }
+          }
+          .select-option-disabled{
+            color: #000;
+            background: #F0F0F0;
+          }
+  
+          .checkbox-section-inner{
+            display: flex;
+            .radio-group {
+              display: flex;
+              align-items: start;
+              padding: 5px 0px;
+              min-width: 200px;
+  
+              &.pad-r-5{
+                padding-right: 5%;
+              }
+  
+              input {
+                height: auto;
+                margin-top: 0px;
+                border: 1px solid #bababa;
+                padding: 0 10px;
+              }
+  
+              input[type="radio"]:checked {
+                box-shadow: none;
+                background: #fff;
+              }
+  
+              label {
+                font-size: 12px;
+                font-weight: 400;
+                color: #000;
+                margin-bottom: 0px;
+                margin-left: 10px;
+                cursor: pointer;
+              }
+            }
+          }
+  
+  
+          .phone-box{
+            display: flex;
+            .left{
+              width: 107px;
+              min-width: 107px;
+              select{
+                border-radius: 4px 0 0 4px !important;
+                border-right: none !important;
+              }
+              .select-option-disabled{
+                color: #000;
+                background: #F0F0F0;
+              }
+            }
+            .right{
+              width: calc(100% - 107px);
+              input{
+                border-radius: 0px 4px 4px 0px !important;
+              }
+              .select-option-disabled{
+                color: #000;
+                background: #F0F0F0;
+              }
+            }
+            .left,.right{
+              position: relative;
+              & > input, & > select {
+                height: 46px;
+                border-radius: 5px;
+                display: inline-block;
+                padding: 5px 15px;
+                color: #363636;
+                background: #fff;
+                border: 1px solid #ddd;
+                width: 100%;
+                .select-option-disabled{
+                  color: #000;
+                  background: #F0F0F0;
+                }
+              }
+  
+              & > label {
+                position: absolute;
+                top: -0.8rem;
+                font-size: 11px;
+                font-weight: 500;
+                margin: 0;
+                background: white;
+                color: #363636;
+                left: 1rem;
+                padding: 0 5px;
+                transition: all 0.1s ease-in-out;
+                cursor: text;
+              }
+  
+              & > select{
+                padding: 5px 10px;
+  
+              }
+  
+            }
+          }
+  
+          & > input, & > select, & > textarea {
+            height: 46px;
+            border-radius: 5px;
+            display: inline-block;
+            padding: 5px 15px;
+            color: #000;
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 100%;
+          }
+  
+  
+          & > input:checked {
+            border: 1px solid #0948acf0;
+            background: #0948acf0;
+          }
+  
+          & > select{
+            padding: 5px 10px;
+            &:disabled {
+              color: #000;
+              background: #F0F0F0;
+            }
+  
+            &:focus,&:-webkit-autofill:focus {
+              background: #fff;
+              -webkit-text-fill-color: #222;
+              -webkit-box-shadow: none !important;
+            }
+          }
+  
+          & > textarea{
+            padding-top: 15px;
+            height: 46px;
+            max-width: 100%;
+            width: 100%;
+          }
+  
+          & > label {
+            position: absolute;
+            top: -0.8rem;
+            font-size: 11px;
+            font-weight: 500;
+            margin: 0;
+            background: white;
+            color: #363636;
+            left: 1rem;
+            padding: 0 5px;
+            transition: all 0.1s ease-in-out;
+            cursor: text;
+          }
+        }
+      }
+    }
+   .button-section {
+       .submit-button {
+         height: 40px;
+         width: 100%;
+         max-width: 12%;
+         font-size: 13px;
+         font-weight: 600;
+         border-radius: 3px;
+         background: #00a71c;
+         color: #fff;
+         border: 1px solid #00a71c;
+         &:disabled{
+           color: #fff;
+           background: lightgrey;
+           border: 1px solid lightgrey;
+         }
+       }
+       .cancel-button {
+         height: 40px;
+         width: 100%;
+         max-width: 12%;
+         font-size: 13px;
+         font-weight: 600;
+         border-radius: 3px;
+         border: 1px solid #fff;
+         margin-left: 25px;
+     }
+     .update-button{
+       height: 40px;
+       width: 100%;
+       max-width: 12%;
+       font-size: 13px;
+       font-weight: 600;
+       border-radius: 3px;
+       background: #0063A7;
+       color: #fff;
+       border: 1px solid #0063A7;;
+     }
+   }
+  }
+  
+  .back-button {
+    height: 40px;
+    width: 89%;
+    max-width: 9%;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    margin-top: -47px;
+    left: 89%;
+    position: absolute;
+  }
+  
+  
+  .financier-inner{
+  
+    .v-finacier-row{
+      position: relative;
+    }
+  
+  
+  }
+  
+  .deletemore {
+    position: absolute;
+    right: 5px;
+    margin-left: 0;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    width: 15px;
+    height: 16px;
+    padding: 0;
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: bold;
+  
+  }
+  
+  .deletemore{
+    bottom: 55px;
+  }
+  .addmore{
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    margin-left: 0;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #000;
+    font-size: 20px;
+  }
+  
+  
+  
+  @media screen and (max-width: 1560px) {
+    .financier-detail {
+  
+      .v-finacier-row{
+  
+        .f-field {
+          width: 31% !important;
+  
+          &.width50{
+            width: 48% !important;
+          }
+        }
+      }
+    }
+  }
+  
+  .example-radio-group {
+    margin: 10px -30px;
+  }
+  
+  .example-radio-button {
+    margin-left : 30px;
+  }
+  
+  mat-select {
+    &.mat-select-panel {
+      transform-origin: 50% 21px 0;
+      font-size: 14px;
+      opacity: 1;
+      min-width: calc(100% + 28px);
+      transform: scaleY(1);
+      margin-top: 50px;
+      margin-left: 30px;
+    }
+    &.mat-pseudo-checkbox{
+      background-color: #0063A7;
+    }
+  }
+  
+  #accordion{
+    padding: 15px;
+    background: #fff;
+    .card{
+      height: auto;
+      box-shadow: none;
+      margin-bottom: 0;
+  
+      #headingTwo{
+        h5{
+          margin-bottom: 0;
+        }
+        height: auto;
+        border: none;
+        padding: 0;
+        button{
+          font-size: 12px;
+          color: #4490DF;
+          padding: 0 !important;
+          display: block;
+          width: 100%;
+          text-align: left;
+  
+          .ri-arrow-down-s-line{
+            color: #4490DF;
+            vertical-align: middle;
+            font-size: 18px;
+          }
+        }
+  
+        .btn-link:hover, .btn-link:focus{
+          text-decoration: none;
+        }
+        .btn {
+          &.btn-link{
+            .ri-arrow-down-s-line{
+              &::before{
+                content: "\EA78";
+              }
+            }
+          }
+        }
+        .btn {
+          &.btn-link{
+            &.collapsed{
+              .ri-arrow-down-s-line{
+                &::before{
+                  content: "\EA4E";
+                }
+              }
+            }
+          }
+        }
+      }
+  
+      #collapseTwo{
+        ul{
+          padding-left: 20px;
+          li{
+            color: #303030;
+            font-size: 12px;
+            line-height: 18px;
+  
+            &::marker{
+              font-size: 16px;
+            }
+          }
+        }
+        h3{
+          color: #303030;
+          font-size: 14px;
+          line-height: 22px;
+        }
+        p{
+          color: #303030;
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+  

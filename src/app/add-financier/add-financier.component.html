@@ -1,0 +1,207 @@
+<section id="financiaer-Details">
+    <div class="customer breadcrumb">
+    </div>
+    <div class="v-financier-inner">
+      <form [formGroup]="addFinancierForm">
+        <div class="v-financier-heading clearfix">
+          <ng-container>
+            <h3>Add Financier Details</h3>
+           </ng-container>
+          <ng-container>
+            <h3>Update Financier Details</h3>
+          </ng-container>
+        </div>
+        <div class="v-tab-formarea clearfix">
+          <div class="financier-detail" formGroupName="financingPartner">
+            <h3>Financier Details </h3>
+            <div class="v-finacier-row clearfix">
+              <div class="f-field">
+                <input type="hidden" class="form-control" formControlName="bankId" >
+                <input type="text" class="form-control" id="Financier name" formControlName="lenderName" [readonly]="banKNameDisabled"
+                       placeholder="Enter Financier name" (keypress)="keyPressEvent1($event)" required>
+                <label> Financier name <em class="required">*</em></label>
+              </div>
+  
+              <div class="f-field">
+                <select class="form-control" formControlName="financierType" required>
+                  <option [value]="'Select'"  [disabled]="true">Select</option>
+                  <option *ngFor="let financierType of financierTypes" [value]='financierType' >{{financierType}}</option>
+                </select>
+                <label>Financier Type <em class="required">*</em> </label>
+              </div>
+  
+  
+              <div class="f-field">
+                <input type="text" class="form-control" formControlName="mou" [readonly]="isFinancierLenderPresent" placeholder="Enter MOU"
+                       (keypress)="keyPressEvent($event)" required>
+                <label>Mou <em class="required">*</em></label>
+              </div>
+  
+              <div class="f-field">
+                <input type="email" class="form-control" formControlName="lenderEmailId" [readonly]="isFinancierLenderPresent"
+                       placeholder="Enter Financier Email" required>
+                <label>Financier Email <em class="required">*</em></label>
+              </div>
+  
+              <div class="f-field">
+                <div class="phone-box d-flex">
+                  <div class="left">
+                    <select class="form-control" disabled [ngClass]="{'select-option-disabled':isFinancierLenderPresent}" required>
+                      <option value="+91">+91</option>
+                    </select>
+                    <label>Country Code </label>
+                  </div>
+                  <div class="right">
+                    <input type="text" class="form-control" formControlName="lenderMobile" [readonly]="isFinancierLenderPresent"
+                           placeholder="Enter Financier Phone" maxlength="10" (keypress)="keyPressEvent($event)"
+                           [ngClass]="{'select-option-disabled':isFinancierLenderPresent}" required>
+                    <label>Financier Mobile <em class="required">*</em></label>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="f-field">
+                <input type="text" class="form-control" formControlName="interestRate" [readonly]="isFinancierLenderPresent" placeholder="Enter Interest Rate"
+                       (keypress)="keyPressEvent3($event)" required>
+                <label>Interest Rate(%)<em class="required">*</em></label>
+              </div>
+  
+              <div class="f-field">
+                <input type="text" class="form-control" formControlName="panNumber" [readonly]="isFinancierLenderPresent" placeholder="Enter PAN No"
+                       maxlength="10" (keypress)="keyPressEvent2($event)">
+                <label>PAN No.</label>
+              </div>
+  
+              <div class="f-field">
+                <input type="text" class="form-control" formControlName="cin" [readonly]="isFinancierLenderPresent" placeholder="Enter CIN" maxlength="21"
+                       (keypress)="keyPressEvent2($event)">
+                <label>CIN</label>
+              </div>
+  
+              <div class="f-field">
+                <input type="text" class="form-control" formControlName="mouLimit" [readonly]="isFinancierLenderPresent" placeholder="Enter MOU Limit"
+                       (keypress)="keyPressEvent($event)" required>
+                <label>MOU Limit(Cr)<em class="required">*</em></label>
+              </div>
+  
+              <div class="f-field">
+                <input type="text" class="form-control" formControlName="disbursementUrl" [readonly]="isFinancierLenderPresent"
+                       placeholder="Enter Disbursement Redirected URL">
+                <label>Disbursement Redirected URL</label>
+              </div>
+  
+              <div class="f-field">
+                <select class="form-control" formControlName="listedThroughAggregator" [ngClass]="{'select-option-disabled':isFinancierLenderPresent}">
+                  <option [value]="'Select'" [disabled]="true">Select</option>
+                  <option *ngFor="let choose of chooses" [value]='choose' [disabled]=isFinancierLenderPresent>{{choose}}</option>
+                </select>
+                <label> Listed Through Aggregator</label>
+              </div>
+  
+              <div class="f-field width50">
+                <textarea [readonly]="isFinancierLenderPresent" placeholder="Enter Long Description here..." class="form-control"
+                          formControlName="description" required (keypress)="keyPressEvent2($event)" maxlength="50"></textarea>
+                <label>Long Description <em class="required">*</em></label>
+              </div>
+  
+              <div class="f-field">
+                <select class="form-control" formControlName="modeOfCommunication" [ngClass]="{'select-option-disabled':isFinancierLenderPresent}">
+                  <option [value]="'Select'" [disabled]="true">Select</option>
+                  <option *ngFor="let modeOfCommunication of modeOfCommunications" [value]='modeOfCommunication' [disabled]=isFinancierLenderPresent>
+                    {{modeOfCommunication}}
+                  </option>
+                </select>
+                <label> Mode of Communication <em class="required">*</em></label>
+              </div>
+            </div>
+          </div>
+  
+          <div class="financier-detail new" formArrayName="contactPersonList">
+            <h3>Contact Person Details</h3>
+            <button class="addmore"  (click)="addContactPerson()" *ngIf="showAddIcon">
+              <i class="ri-add-box-fill"></i>
+            </button>
+            <div class="financier-inner" *ngFor="let contactPerson of getContactPersons(); let i = index;" [formGroupName]="i">
+              <div class="v-finacier-row clearfix">
+                  <input type="hidden" class="form-control" formControlName="lenderId" >
+                  <input type="hidden" class="form-control" formControlName="contactPersonIsPresent" >
+                  <div class="f-field">
+                  <select class="form-control" formControlName="contactPersonTitle" [ngClass]="{'select-option-disabled':isContactPersonPresent}">
+                    <option [value]="'Select'" [disabled]=true>Select</option>
+                    <option *ngFor="let title of titles" [value]='title' [disabled]=isContactPersonPresent>{{title}}</option>
+                  </select>
+                  <label>Title</label>
+                </div>
+                <div class="f-field">
+                  <input type="text" class="form-control" formControlName="contactPersonFirstname"
+                         [readonly]="isContactPersonPresent" placeholder="Enter Contact Person First Name" (keypress)="keyPressEvent1($event)">
+                  <label>Contact Person First Name <em class="required">*</em></label>
+                </div>
+                <div class="f-field">
+                  <input type="text" class="form-control" formControlName="contactPersonMiddleName"
+                         [readonly]="isContactPersonPresent" placeholder="Enter Contact Person Middle Name" (keypress)="keyPressEvent1($event)">
+                  <label>Contact Person Middle Name</label>
+                </div>
+  
+                <div class="f-field">
+                  <input type="text" class="form-control" formControlName="contactPersonLastname"
+                         [readonly]="isContactPersonPresent" placeholder="Enter Contact Person Last Name" (keypress)="keyPressEvent1($event)" required>
+                  <label>Contact Person Last Name <em class="required">*</em></label>
+                </div>
+  
+                <div class="f-field">
+                  <input type="text" class="form-control" formControlName="contactPersonDesignation"
+                         [readonly]="isContactPersonPresent" placeholder="Enter Contact Person Designation" (keypress)="keyPressEvent1($event)" required>
+                  <label>Contact Person Designation <em class="required">*</em></label>
+                </div>
+  
+                <div class="f-field">
+                  <input type="email" class="form-control" formControlName="contactPersonEmailId"
+                         [readonly]="isContactPersonPresent" placeholder="Enter Contact Person Email" required>
+                  <label>Contact Person Email <em class="required">*</em></label>
+                </div>
+  
+                <div class="f-field">
+                  <div class="phone-box d-flex">
+                    <div class="left">
+                      <select class="form-control" disabled [ngClass]="{'select-option-disabled':isContactPersonPresent}">
+                        <option value="+91">+91</option>
+                      </select>
+                      <label>Country Code </label>
+                    </div>
+                    <div class="right">
+                      <input type="text" class="form-control" formControlName="contactPersonMobile"
+                             [readonly]="isContactPersonPresent" placeholder="Enter Contact Person Mobile" maxlength="10" (keypress)="keyPressEvent($event)"
+                             [ngClass]="{'select-option-disabled':isContactPersonPresent}" required>
+                      <label>Contact Person Mobile <em class="required">*</em></label>
+                    </div>
+                  </div>
+                </div>
+                <button class="deletemore" *ngIf="hideDeleteIcon" (click)="removeContactPerson(i,contactPerson?.value?.lenderId)">
+                  <i class="ri-close-line"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-section">
+          <ng-container *ngIf="!isFinancierLenderPresent">
+          <button type="submit" class="submit-button" (click)="submitFinancierForm(isAddFinancierRequest == undefined? 'save' : 'update')"
+                  [disabled]="addFinancierForm.invalid">
+            Save Financier
+          </button>
+          </ng-container>
+          <ng-container *ngIf="isFinancierLenderPresent">
+            <button type="submit" class="update-button" (click)="enableAddFinancierButton()">Update Financier</button>
+          </ng-container>
+          <ng-container *ngIf="!isAddFinancierRequest && isAddFinancierRequest !=undefined">
+            <button type="button" class="cancel-button" data-dismiss="modal" (click)="resetAttribute()">
+              Cancel
+            </button>
+          </ng-container>
+  
+        </div>
+      </form>
+    </div>
+  </section>
+  
